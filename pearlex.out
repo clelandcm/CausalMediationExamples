@@ -1,0 +1,435 @@
+Mplus VERSION 8.4
+MUTHEN & MUTHEN
+08/30/2020  11:04 AM
+
+INPUT INSTRUCTIONS
+
+    title:
+        Pearl (2011) artificial example for n=200
+
+    data:
+        file = "c:/chuck/NYU/Khan/mediator/pearlex.dat";
+
+    variable:
+        names = m y x; !x: tx/ctrl, m: mediator, y: outcome
+        categorical = y m;
+        usev = y m x mx;
+
+    define:
+        mx=m*x;
+
+    analysis:
+        estimator = ml;
+        bootstrap = 1000;
+
+    model:
+          y on m x mx;
+          m on x;
+
+    model indirect:
+           y MOD m mx x (1 0);
+
+    output:
+        tech1 tech8 cinterval(bootstrap);
+
+    plot:
+        type = plot3;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Pearl (2011) artificial example for n=200
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         200
+
+Number of dependent variables                                    2
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   Y           M
+
+Observed independent variables
+   X           MX
+
+
+Estimator                                                       ML
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Number of bootstrap draws
+    Requested                                                 1000
+    Completed                                                 1000
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  15
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Link                                                         LOGIT
+Cholesky                                                       OFF
+
+Input data file(s)
+  c:/chuck/NYU/Khan/mediator/pearlex.dat
+Input data format  FREE
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    Y
+      Category 1    0.530          106.000
+      Category 2    0.470           94.000
+    M
+      Category 1    0.425           85.000
+      Category 2    0.575          115.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     X                     0.500       0.000       0.000   50.00%       0.000      0.000      0.500
+             200.000       0.250      -2.000       1.000   50.00%       1.000      1.000
+     MX                    0.375       0.516       0.000   62.50%       0.000      0.000      0.000
+             200.000       0.234      -1.733       1.000   37.50%       0.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        6
+
+Loglikelihood
+
+          H0 Value                        -232.349
+
+Information Criteria
+
+          Akaike (AIC)                     476.698
+          Bayesian (BIC)                   496.488
+          Sample-Size Adjusted BIC         477.479
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Y          ON
+    M                  0.539      0.497      1.084      0.278
+    X                  0.981      0.560      1.752      0.080
+    MX                 1.253      0.741      1.690      0.091
+
+ M          ON
+    X                  1.504      0.317      4.747      0.000
+
+ Thresholds
+    Y$1                1.386      0.337      4.109      0.000
+    M$1                0.405      0.204      1.988      0.047
+
+
+LOGISTIC REGRESSION ODDS RATIO RESULTS
+
+                                         (Est. - 1) Two-Tailed
+                    Estimate       S.E.     / S.E.    P-Value
+
+ Y          ON
+    M                  1.714      0.853      0.838      0.402
+    X                  2.667      1.493      1.117      0.264
+    MX                 3.500      2.594      0.964      0.335
+
+ M          ON
+    X                  4.500      1.426      2.455      0.014
+
+
+
+TOTAL, INDIRECT, AND DIRECT EFFECTS BASED ON COUNTERFACTUALS (CAUSALLY-DEFINED EFFECTS)
+
+
+Effects from X to Y
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+  Tot natural IE       0.140      0.048      2.908      0.004
+  Pure natural DE      0.320      0.077      4.176      0.000
+  Total effect         0.460      0.062      7.376      0.000
+
+ Odds ratios for binary Y
+
+                                         (Est. - 1) Two-Tailed
+                    Estimate       S.E.     / S.E.    P-Value
+
+  Tot natural IE       1.833      0.403      2.066      0.039
+  Pure natural DE      4.030      1.669      1.815      0.069
+  Total effect         7.389      2.747      2.326      0.020
+
+ Other effects
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+  Pure natural IE      0.035      0.032      1.080      0.280
+  Tot natural DE       0.425      0.071      5.947      0.000
+  Total effect         0.460      0.062      7.376      0.000
+
+ Odds ratios for other effects for binary Y
+
+                                         (Est. - 1) Two-Tailed
+                    Estimate       S.E.     / S.E.    P-Value
+
+  Pure natural IE      1.201      0.202      0.995      0.320
+  Tot natural DE       6.152      2.706      1.904      0.057
+  Total effect         7.389      2.747      2.326      0.020
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+ Y        ON
+    M               -0.834      -0.404      -0.256       0.539       1.351       1.540       1.869
+    X               -0.682      -0.093       0.108       0.981       1.899       2.109       2.483
+    MX              -0.820      -0.203       0.053       1.253       2.474       2.711       3.111
+
+ M        ON
+    X                0.807       0.937       1.013       1.504       2.052       2.152       2.489
+
+ Thresholds
+    Y$1              0.693       0.856       0.916       1.386       2.024       2.125       2.398
+    M$1             -0.074       0.036       0.080       0.405       0.775       0.837       0.940
+
+
+
+CONFIDENCE INTERVALS OF TOTAL, INDIRECT, AND DIRECT EFFECTS BASED ON COUNTERFACTUALS (CAUSALLY-DEFINED EFFECTS)
+
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Effects from X to Y
+
+  Tot natural IE     0.033       0.054       0.066       0.140       0.220       0.243       0.296
+  Pure natural DE    0.111       0.174       0.193       0.320       0.446       0.469       0.516
+  Total effect       0.298       0.349       0.360       0.460       0.560       0.576       0.609
+
+ Odds ratios for binary Y
+
+  Tot natural IE     1.151       1.288       1.342       1.833       2.603       2.827       3.454
+  Pure natural DE    1.577       2.085       2.358       4.030       7.358       8.551      10.652
+  Total effect       3.455       4.337       4.562       7.389      13.102      14.522      17.917
+
+ Other effects
+
+  Pure natural IE   -0.040      -0.022      -0.015       0.035       0.092       0.106       0.120
+  Tot natural DE     0.227       0.287       0.309       0.425       0.537       0.561       0.593
+  Total effect       0.298       0.349       0.360       0.460       0.560       0.576       0.609
+
+ Odds ratios for other effects for binary Y
+
+  Pure natural IE    0.761       0.871       0.912       1.201       1.583       1.670       1.852
+  Tot natural DE     2.519       3.292       3.604       6.152      11.494      13.114      17.323
+  Total effect       3.455       4.337       4.562       7.389      13.102      14.522      17.917
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           TAU
+              Y$1           M$1
+              ________      ________
+                    5             6
+
+
+           NU
+              Y             M             X             MX
+              ________      ________      ________      ________
+                    0             0             0             0
+
+
+           LAMBDA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y                  0             0             0             0
+ M                  0             0             0             0
+ X                  0             0             0             0
+ MX                 0             0             0             0
+
+
+           THETA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y                  0
+ M                  0             0
+ X                  0             0             0
+ MX                 0             0             0             0
+
+
+           ALPHA
+              Y             M             X             MX
+              ________      ________      ________      ________
+                    0             0             0             0
+
+
+           BETA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y                  0             1             2             3
+ M                  0             0             4             0
+ X                  0             0             0             0
+ MX                 0             0             0             0
+
+
+           PSI
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y                  0
+ M                  0             0
+ X                  0             0             0
+ MX                 0             0             0             0
+
+
+     STARTING VALUES
+
+
+           TAU
+              Y$1           M$1
+              ________      ________
+                0.120        -0.302
+
+
+           NU
+              Y             M             X             MX
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y              1.000         0.000         0.000         0.000
+ M              0.000         1.000         0.000         0.000
+ X              0.000         0.000         1.000         0.000
+ MX             0.000         0.000         0.000         1.000
+
+
+           THETA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y              0.000
+ M              0.000         0.000
+ X              0.000         0.000         0.000
+ MX             0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              Y             M             X             MX
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           BETA
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y              0.000         0.000         0.000         0.000
+ M              0.000         0.000         0.000         0.000
+ X              0.000         0.000         0.000         0.000
+ MX             0.000         0.000         0.000         0.000
+
+
+           PSI
+              Y             M             X             MX
+              ________      ________      ________      ________
+ Y              1.000
+ M              0.000         1.000
+ X              0.000         0.000         0.125
+ MX             0.000         0.000         0.000         0.117
+
+
+TECHNICAL 8 OUTPUT
+
+
+   E STEP  ITER  LOGLIKELIHOOD    ABS CHANGE   REL CHANGE  ALGORITHM
+              1 -0.27464014D+03    0.0000000    0.0000000  EM
+              2 -0.23278982D+03   41.8503262    0.1523824  EM
+              3 -0.23234976D+03    0.4400539    0.0018903  EM
+              4 -0.23234887D+03    0.0008893    0.0000038  EM
+              5 -0.23234887D+03    0.0000000    0.0000000  EM
+
+
+PLOT INFORMATION
+
+The following plots are available:
+
+  Histograms (sample values)
+  Scatterplots (sample values)
+  Sample proportions
+  Bootstrap distributions
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    c:\chuck\nyu\khan\mediation\pearlex.dgm
+
+     Beginning Time:  11:04:39
+        Ending Time:  11:04:43
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -1,0 +1,30 @@
+  title:
+      Pearl (2011) artificial example for n=200
+
+  data:
+      file = "c:/chuck/NYU/Khan/mediator/pearlex.dat";
+
+  variable:
+      names = m y x; !x: tx/ctrl, m: mediator, y: outcome
+      categorical = y m;
+      usev = y m x mx;
+
+  define:
+      mx=m*x;
+
+  analysis:
+      estimator = ml;
+      bootstrap = 1000;
+
+  model:
+        y on m x mx;
+        m on x;
+
+  model indirect:
+         y MOD m mx x (1 0);
+
+  output:
+      tech1 tech8 cinterval(bootstrap);
+
+  plot:
+      type = plot3;
