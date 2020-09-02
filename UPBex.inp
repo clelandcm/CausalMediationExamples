@@ -1,0 +1,27 @@
+  title:
+      Unwanted Pursuit Behavior
+
+  data:
+      file = "c:/chuck/NYU/Khan/mediator/UPB.dat";
+
+  variable:
+      names = attbin negaff age upb;
+      categorical = upb;
+      usev = upb negaff attbin age mx;
+
+  define:
+      mx=negaff*attbin;
+
+  analysis:
+      estimator = ml;
+      bootstrap = 1000;
+
+  model:
+        upb on negaff attbin mx age;
+        negaff on attbin age;
+
+  model indirect:
+         upb MOD negaff mx attbin (1 0);
+
+  output:
+      tech1 tech8 cinterval(bootstrap);
