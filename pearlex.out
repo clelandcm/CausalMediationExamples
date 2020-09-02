@@ -1,11 +1,11 @@
 Mplus VERSION 8.4
 MUTHEN & MUTHEN
-08/30/2020  11:04 AM
+09/02/2020   8:20 AM
 
 INPUT INSTRUCTIONS
 
     title:
-        Pearl (2011) artificial example for n=200
+        Pearl artificial example for n=200
 
     data:
         file = "c:/chuck/NYU/Khan/mediator/pearlex.dat";
@@ -42,7 +42,7 @@ INPUT READING TERMINATED NORMALLY
 
 
 
-Pearl (2011) artificial example for n=200
+Pearl artificial example for n=200
 
 SUMMARY OF ANALYSIS
 
@@ -417,9 +417,9 @@ DIAGRAM INFORMATION
   Diagram output
     c:\chuck\nyu\khan\mediation\pearlex.dgm
 
-     Beginning Time:  11:04:39
-        Ending Time:  11:04:43
-       Elapsed Time:  00:00:04
+     Beginning Time:  08:20:14
+        Ending Time:  08:20:20
+       Elapsed Time:  00:00:06
 
 
 
