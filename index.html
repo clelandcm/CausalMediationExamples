@@ -462,7 +462,7 @@ summary {
 
 <h1 class="title toc-ignore">Causal Mediation Analysis</h1>
 <h4 class="author">Chuck Cleland</h4>
-<h4 class="date">September 02, 2020 12:06:56 PM EDT</h4>
+<h4 class="date">September 07, 2020 09:02:25 AM EDT</h4>
 
 </div>
 
@@ -495,6 +495,7 @@ summary {
 <span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(medflex)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="kw">library</span>(mediation)</span></code></pre></div>
 <p><a href="https://www.hsph.harvard.edu/tyler-vanderweele/tools-and-tutorials/">Tyler VanderWeele Tools and Tutorials</a></p>
+<p><a href="https://www.rdatagen.net/post/causal-mediation/">Causal mediation estimation measures the unobservable</a></p>
 <p><a href="https://obsstudies.org/wp-content/uploads/2018/07/sampleRDA_final.pdf">Samoilenko, M., Blais, L., &amp; Lefebvre, G. (2018). Comparing logistic and log-binomial models for causal mediation analyses of binary mediators and rare binary outcomes: evidence to support cross-checking of mediation results in practice. Obs Stud, 4, 193-216.</a></p>
 <p><a href="https://www.jstatsoft.org/article/view/v076i11">Steen, J., Loeys, T., Moerkerke, B., and Vansteelandt, S. (2017). Medflex: an R package for flexible mediation analysis using natural effect models. Journal of Statistical Software, 76(11).</a></p>
 <p><a href="https://www.annualreviews.org/doi/abs/10.1146/annurev-publhealth-032315-021402">VanderWeele, T. J. (2016). Mediation analysis: A practitioner’s guide. Annual Review of Public Health, 37:17–32.</a></p>
@@ -739,15 +740,15 @@ Mediator(s): Enzyme
 ---
 Parameter estimates:
             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)  -1.2767     0.2578  -4.952 7.36e-07 ***
-Condition01   1.6073     0.3350   4.798 1.60e-06 ***
-Condition11   0.4146     0.1397   2.968    0.003 ** 
+(Intercept)  -1.2767     0.2576  -4.957 7.17e-07 ***
+Condition01   1.6073     0.3417   4.704 2.55e-06 ***
+Condition11   0.4146     0.1485   2.793  0.00523 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">exp</span>(<span class="kw">confint</span>(neMod1)[<span class="op">-</span><span class="dv">1</span>,])</span></code></pre></div>
 <pre><code>             95% LCL  95% UCL
-Condition01 2.455741 9.129848
-Condition11 1.148993 1.986700</code></pre>
+Condition01 2.493906 9.518143
+Condition11 1.121264 2.006496</code></pre>
 <div id="with-an-interaction-between-exposure-and-mediator" class="section level3">
 <h3>With an Interaction Between Exposure and Mediator</h3>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>expData2 &lt;-<span class="st"> </span><span class="kw">neImpute</span>(Cured <span class="op">~</span><span class="st"> </span>Condition <span class="op">*</span><span class="st"> </span>Enzyme, <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data =</span> DT)</span>
@@ -808,16 +809,16 @@ Causal Mediation Analysis
 Quasi-Bayesian Confidence Intervals
 
                          Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)             0.0718       0.0261         0.13  &lt;2e-16 ***
-ACME (treated)             0.0868       0.0293         0.16  &lt;2e-16 ***
-ADE (control)              0.3675       0.2345         0.50  &lt;2e-16 ***
-ADE (treated)              0.3826       0.2462         0.51  &lt;2e-16 ***
-Total Effect               0.4543       0.3345         0.57  &lt;2e-16 ***
-Prop. Mediated (control)   0.1539       0.0544         0.30  &lt;2e-16 ***
-Prop. Mediated (treated)   0.1866       0.0649         0.36  &lt;2e-16 ***
-ACME (average)             0.0793       0.0274         0.14  &lt;2e-16 ***
-ADE (average)              0.3751       0.2418         0.51  &lt;2e-16 ***
-Prop. Mediated (average)   0.1702       0.0641         0.32  &lt;2e-16 ***
+ACME (control)             0.0740       0.0238         0.14  &lt;2e-16 ***
+ACME (treated)             0.0899       0.0287         0.17  &lt;2e-16 ***
+ADE (control)              0.3658       0.2376         0.49  &lt;2e-16 ***
+ADE (treated)              0.3817       0.2503         0.50  &lt;2e-16 ***
+Total Effect               0.4557       0.3381         0.57  &lt;2e-16 ***
+Prop. Mediated (control)   0.1548       0.0529         0.32  &lt;2e-16 ***
+Prop. Mediated (treated)   0.1892       0.0647         0.37  &lt;2e-16 ***
+ACME (average)             0.0820       0.0258         0.15  &lt;2e-16 ***
+ADE (average)              0.3738       0.2417         0.49  &lt;2e-16 ***
+Prop. Mediated (average)   0.1720       0.0596         0.34  &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -839,17 +840,17 @@ Causal Mediation Analysis
 
 Quasi-Bayesian Confidence Intervals
 
-                         Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)            0.06091      0.02118         0.11   0.006 ** 
-ACME (treated)            0.08418      0.04441         0.13  &lt;2e-16 ***
-ADE (control)             0.07921     -0.00653         0.17   0.082 .  
-ADE (treated)             0.10248      0.00622         0.20   0.030 *  
-Total Effect              0.16339      0.06973         0.26  &lt;2e-16 ***
-Prop. Mediated (control)  0.37093      0.10966         0.91   0.006 ** 
-Prop. Mediated (treated)  0.51313      0.26329         1.09  &lt;2e-16 ***
-ACME (average)            0.07255      0.04031         0.11  &lt;2e-16 ***
-ADE (average)             0.09084      0.00333         0.18   0.044 *  
-Prop. Mediated (average)  0.44203      0.22968         0.96  &lt;2e-16 ***
+                          Estimate 95% CI Lower 95% CI Upper p-value    
+ACME (control)            0.060074     0.018726         0.10  &lt;2e-16 ***
+ACME (treated)            0.082538     0.042911         0.13  &lt;2e-16 ***
+ADE (control)             0.080390    -0.014011         0.17   0.102    
+ADE (treated)             0.102855     0.000922         0.20   0.048 *  
+Total Effect              0.162929     0.069476         0.26   0.002 ** 
+Prop. Mediated (control)  0.364555     0.123627         0.99   0.002 ** 
+Prop. Mediated (treated)  0.502622     0.248972         1.19   0.002 ** 
+ACME (average)            0.071306     0.037990         0.11  &lt;2e-16 ***
+ADE (average)             0.091622    -0.002238         0.19   0.066 .  
+Prop. Mediated (average)  0.433589     0.214181         1.02   0.002 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
