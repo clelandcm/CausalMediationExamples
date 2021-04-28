@@ -247,7 +247,7 @@ pre code {
 
 <h1 class="title toc-ignore">Causal Mediation Analysis</h1>
 <h4 class="author">Chuck Cleland</h4>
-<h4 class="date">April 28, 2021 09:58:22 AM EDT</h4>
+<h4 class="date">April 28, 2021 10:22:31 AM EDT</h4>
 
 </div>
 
@@ -269,6 +269,7 @@ pre code {
 </ul></li>
 <li><a href="#mplus">Mplus</a></li>
 <li><a href="#analysis-of-pearl-example-using-paramed-in-stata">Analysis of Pearl Example Using paramed in Stata</a></li>
+<li><a href="#chucks-notes-on-mediated-effects">Chuck’s notes on mediated effects</a></li>
 </ul>
 </div>
 
@@ -397,7 +398,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <ul>
 <li>The model for the outcome can be used to estimate controlled direct effects</li>
 <li>The CDE when Enzyme=0 is <span class="math inline">\(2.718282^{0.9808}\)</span> = 2.67</li>
-<li>The CDE when Ensyme=1 is <span class="math inline">\(2.718282^{0.9808 + 1.2528}\)</span> = 9.33</li>
+<li>The CDE when Enzyme=1 is <span class="math inline">\(2.718282^{0.9808 + 1.2528}\)</span> = 9.33</li>
 </ul>
 </div>
 </div>
@@ -513,16 +514,16 @@ Causal Mediation Analysis
 Quasi-Bayesian Confidence Intervals
 
                          Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)             0.0351      -0.0224         0.10  0.2484    
-ACME (treated)             0.1365       0.0492         0.24  0.0004 ***
-ADE (control)              0.3156       0.1637         0.46  &lt;2e-16 ***
-ADE (treated)              0.4170       0.2688         0.55  &lt;2e-16 ***
-Total Effect               0.4521       0.3208         0.57  &lt;2e-16 ***
-Prop. Mediated (control)   0.0717      -0.0535         0.25  0.2484    
-Prop. Mediated (treated)   0.2970       0.1070         0.56  0.0004 ***
-ACME (average)             0.0858       0.0306         0.15  0.0002 ***
-ADE (average)              0.3663       0.2266         0.50  &lt;2e-16 ***
-Prop. Mediated (average)   0.1843       0.0672         0.36  0.0002 ***
+ACME (control)             0.0345      -0.0240         0.10  0.2450    
+ACME (treated)             0.1359       0.0489         0.24  0.0006 ***
+ADE (control)              0.3159       0.1664         0.47  &lt;2e-16 ***
+ADE (treated)              0.4173       0.2732         0.55  &lt;2e-16 ***
+Total Effect               0.4518       0.3214         0.57  &lt;2e-16 ***
+Prop. Mediated (control)   0.0711      -0.0541         0.24  0.2450    
+Prop. Mediated (treated)   0.2960       0.1071         0.55  0.0006 ***
+ACME (average)             0.0852       0.0307         0.15  0.0008 ***
+ADE (average)              0.3666       0.2315         0.50  &lt;2e-16 ***
+Prop. Mediated (average)   0.1836       0.0675         0.35  0.0008 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -545,16 +546,16 @@ Causal Mediation Analysis
 Quasi-Bayesian Confidence Intervals
 
                          Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)             0.0351      -0.0264         0.11  0.2620    
-ACME (treated)             0.1400       0.0520         0.25  &lt;2e-16 ***
-ADE (control)              0.3197       0.1649         0.47  0.0002 ***
-ADE (treated)              0.4246       0.2850         0.57  &lt;2e-16 ***
-Total Effect               0.4597       0.3347         0.58  &lt;2e-16 ***
-Prop. Mediated (control)   0.0726      -0.0569         0.24  0.2620    
-Prop. Mediated (treated)   0.2981       0.1107         0.58  &lt;2e-16 ***
-ACME (average)             0.0875       0.0319         0.16  0.0004 ***
-ADE (average)              0.3721       0.2374         0.51  &lt;2e-16 ***
-Prop. Mediated (average)   0.1854       0.0679         0.36  0.0004 ***
+ACME (control)             0.0348      -0.0251         0.10  0.2574    
+ACME (treated)             0.1393       0.0535         0.25  &lt;2e-16 ***
+ADE (control)              0.3201       0.1679         0.47  &lt;2e-16 ***
+ADE (treated)              0.4246       0.2823         0.57  &lt;2e-16 ***
+Total Effect               0.4594       0.3306         0.59  &lt;2e-16 ***
+Prop. Mediated (control)   0.0729      -0.0530         0.23  0.2574    
+Prop. Mediated (treated)   0.2966       0.1161         0.56  &lt;2e-16 ***
+ACME (average)             0.0871       0.0325         0.16  0.0006 ***
+ADE (average)              0.3723       0.2359         0.51  &lt;2e-16 ***
+Prop. Mediated (average)   0.1848       0.0709         0.36  0.0006 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -714,70 +715,37 @@ Simulations: 10000 </code></pre>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>paramed Cured, avar(Condition) mvar(Enzyme) a0(0) a1(1) <span class="fu">m</span>(1) yreg(<span class="kw">logistic</span>) <span class="co">///</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  mreg(<span class="kw">logistic</span>) <span class="kw">boot</span> reps(1000) <span class="dv">seed</span>(5856) full</span></code></pre></div>
-<pre><code>Iteration 0:   log likelihood = -138.26922
-Iteration 1:   log likelihood = -109.19316
-Iteration 2:   log likelihood = -108.81506
-Iteration 3:   log likelihood = -108.81419
-
-Logistic regression                               Number of obs   =        200
-                                                  LR chi2(3)      =      58.91
-                                                  Prob &gt; chi2     =     0.0000
-Log likelihood = -108.81419                       Pseudo R2       =     0.2130
-
-------------------------------------------------------------------------------
-       Cured |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-   Condition |   .9808293   .5204151     1.88   0.059    -.0391655    2.000824
-      Enzyme |   .5389965    .472454     1.14   0.254    -.3869963    1.464989
-_Condition~e |   1.252763   .6879038     1.82   0.069    -.0955036     2.60103
-       _cons |  -1.386294   .3227463    -4.30   0.000    -2.018865   -.7537233
-------------------------------------------------------------------------------
-
-Iteration 0:   log likelihood = -136.37092
-Iteration 1:   log likelihood = -123.59665
-Iteration 2:   log likelihood =  -123.5347
-Iteration 3:   log likelihood = -123.53468
-
-Logistic regression                               Number of obs   =        200
-                                                  LR chi2(1)      =      25.67
-                                                  Prob &gt; chi2     =     0.0000
-Log likelihood = -123.53468                       Pseudo R2       =     0.0941
-
-------------------------------------------------------------------------------
-      Enzyme |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-   Condition |   1.504077   .3082207     4.88   0.000      .899976    2.108179
-       _cons |  -.4054651   .2041241    -1.99   0.047    -.8055411   -.0053891
-------------------------------------------------------------------------------
-
-             |   Estimate     Std Err   P&gt;|z|   [95% Conf   Interval]
--------------+-------------------------------------------------------
-         cde |  9.3333333   .44986638   0.000   3.8645843   22.540875
-        pnde |  6.2222222   .34570145   0.000   3.1599376   12.252156
-        pnie |  1.1944444   .14790756   0.230   .89384971   1.5961269
-        tnde |   8.248062   .40262055   0.000   3.7465746    18.15806
-        tnie |  1.5833333   .11905278   0.000   1.2538125   1.9994573
-          te |  9.8518518   .36690387   0.000   4.7995773   20.222403
-
-cde:controlled direct effect, pnde:pure natural direct effect, pnie:pure
-     natural indirect effect, tnde:total natural direct effect, tnie:total
-     natural indirect effect, te:total effect
-
-------------------------------------------------------------------------------
-             |    Observed               Bootstrap
-             |       Coef.       Bias    Std. Err.  [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         cde |   9.3333333   1.768738   5.8066911    3.823529   21.92593  (BC)
-        pnde |   6.2222222    .721048   2.6785084    3.136337   12.60271  (BC)
-        pnie |   1.1944444   .0066691   .18994493    .8309391    1.58533  (BC)
-        tnde |    8.248062   1.205885   4.2031676    3.674618   17.79823  (BC)
-        tnie |   1.5833333   .0127632   .21027634    1.268439   2.157706  (BC)
-          te |   9.8518518   1.212923   4.5204217    5.059931   21.63834  (BC)
-------------------------------------------------------------------------------
-(BC)   bias-corrected confidence interval</code></pre>
+<pre><code>Error in running comma</code></pre>
 <ul>
 <li>Estimates of effects from <span class="math inline">\(paramed\)</span> are odds ratios, and are somewhat different than odds ratios estimated by <span class="math inline">\(Mplus\)</span> and <span class="math inline">\(medflex\)</span></li>
 </ul>
+</div>
+<div id="chucks-notes-on-mediated-effects" class="section level1">
+<h1>Chuck’s notes on mediated effects</h1>
+<ul>
+<li><p>TE = E[Y (1, M (1)) – Y (0, M (0))]</p></li>
+<li><p>PNDE = E[Y (1, M (0)) – Y (0, M (0))]</p></li>
+<li><p>TNDE = E[Y (1, M (1)) – Y (0, M (1))]</p></li>
+<li><p>PNIE = E[Y (0, M (1)) – Y (0, M (0))]</p></li>
+<li><p>TNIE = E[Y (1, M (1)) – Y (1, M (0))]</p></li>
+<li><p>CDE(m) = E[Y (1, m) – Y (0, m)]</p></li>
+<li><p>“The notation M(0) denotes the value of the mediator that would have been observed had X been set to 0 and similarly for M(1). It is not to be confused with M = 0, M = 1, which are specific values for the M variable.” Muthén, Muthén, &amp; Asparouhov (2017)</p></li>
+<li><p>Y (1, M (0)) is a counterfactual (we do not observe individuals who are exposed but take the value of the mediator expected in the absence of exposure).</p></li>
+<li><p>Y (0, M (1)) is a counterfactual (we do not observe individuals who are not exposed but take the value of the mediator expected in the presence of the exposure).</p></li>
+<li><p>“The pure natural direct effect (PNDE) allows the mediator to vary over subjects in the natural way it would vary if the subjects were given the control condition.” Muthén, Muthén, &amp; Asparouhov (2017)</p></li>
+<li><p>“The pure natural direct effect – expresses the effect that would be realized if the exposure were administered, but its effects on the mediator were somehow blocked, or equivalently, if the mediator were kept at the level it would have taken in the absence of the exposure.” VanderWeele &amp; Vansteelandt (2009)</p></li>
+<li><p>“The total natural direct effect (TNDE) considers M at the treatment condition instead of the control condition”. Muthén, Muthén, &amp; Asparouhov (2017)</p></li>
+<li><p>“The controlled direct effect CDE considers a specific fixed value M = m …” Muthén, Muthén, &amp; Asparouhov (2017)</p></li>
+<li><p>“The controlled direct effect (CDE(m)) expresses how much the outcome would change on average if the mediator were fixed at level m uniformly in the population but the treatment were changed from level a∗ = 0 to level a = 1.” VanderWeele (2015)</p></li>
+<li><p>“The direct effect notion is motivated by the fact that the effect of treatment on Y is not transferred via M given that its value is fixed.” Muthén, Muthén, &amp; Asparouhov (2017)</p></li>
+<li><p><strong>PNDE</strong>: The difference between exposed and unexposed when the action of the mediator is blocked by setting it to values it takes naturally in the absence of exposure.</p></li>
+<li><p><strong>TNIE</strong>: Compares the outcome when subjects are exposed, and the mediator varies as it would naturally under exposure, versus the outcome when subjects are exposed but the mediator varies as it would naturally in the absence of exposure. The second part of the difference captured in the TNIE describes how the outcome is affected by the exposure without the mediator being affected by the exposure.</p></li>
+<li><p>The typical approach is to decompose TE into TNIE and PNDE. In this decomposition, the effect of the interaction term (X*M) on the outcome is assigned to the indirect effect, which is the motivation for the first word, Total, in TNIE. <span class="math inline">\(Pure\)</span> means an effect does not include the interaction as a component while <span class="math inline">\(total\)</span> means it does include the interaction as a component.</p></li>
+<li><p>The medflex R package drops the <span class="math inline">\(Total\)</span> and <span class="math inline">\(Pure\)</span> modifiers when there is no interaction term between exposure and mediator(s) [try it!]. Because the TNIE/PNDE decomposition is far more common than PNIE/TNDE, people may sometimes just say natural direct and natural indirect even in the presence of an interaction between exposure and mediator. I recommend we <strong>use TNIE and PNDE whenever we have included an interaction between exposure and mediator(s)</strong>.</p></li>
+</ul>
+<p><a href="https://www.statmodel.com/Mplus_Book.shtml">Muthén, B. O., Muthén, L. K., &amp; Asparouhov, T. (2017). Regression and mediation analysis using Mplus. Los Angeles, CA: Muthén &amp; Muthén.</a></p>
+<p><a href="https://www.intlpress.com/site/pub/files/_fulltext/journals/sii/2009/0002/0004/SII-2009-0002-0004-a007.pdf">VanderWeele, T. J., &amp; Vansteelandt, S. (2009). Conceptual issues concerning mediation, interventions and composition. Statistics and its Interface, 2(4), 457-468.</a></p>
+<p><a href="https://global.oup.com/academic/product/explanation-in-causal-inference-9780199325870">VanderWeele, T. (2015). Explanation in causal inference: methods for mediation and interaction. Oxford University Press.</a></p>
 </div>
 
 
