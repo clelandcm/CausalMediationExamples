@@ -248,7 +248,7 @@ pre code {
 
 <h1 class="title toc-ignore">Causal Mediation Analysis</h1>
 <h4 class="author">Chuck Cleland</h4>
-<h4 class="date">June 25, 2021 08:57:37 AM EDT</h4>
+<h4 class="date">June 25, 2021 10:07:26 AM EDT</h4>
 
 </div>
 
@@ -568,16 +568,16 @@ Causal Mediation Analysis
 Quasi-Bayesian Confidence Intervals
 
                          Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)             0.0356      -0.0237         0.11    0.26    
-ACME (treated)             0.1375       0.0533         0.24  &lt;2e-16 ***
-ADE (control)              0.3171       0.1683         0.47  &lt;2e-16 ***
-ADE (treated)              0.4190       0.2663         0.56  &lt;2e-16 ***
-Total Effect               0.4546       0.3156         0.57  &lt;2e-16 ***
-Prop. Mediated (control)   0.0740      -0.0490         0.25    0.26    
-Prop. Mediated (treated)   0.2973       0.1181         0.55  &lt;2e-16 ***
-ACME (average)             0.0865       0.0313         0.15  &lt;2e-16 ***
-ADE (average)              0.3680       0.2298         0.50  &lt;2e-16 ***
-Prop. Mediated (average)   0.1857       0.0684         0.36  &lt;2e-16 ***
+ACME (control)             0.0361      -0.0240         0.11    0.22    
+ACME (treated)             0.1364       0.0544         0.24  &lt;2e-16 ***
+ADE (control)              0.3161       0.1742         0.46  &lt;2e-16 ***
+ADE (treated)              0.4164       0.2754         0.55  &lt;2e-16 ***
+Total Effect               0.4524       0.3232         0.58  &lt;2e-16 ***
+Prop. Mediated (control)   0.0728      -0.0546         0.26    0.22    
+Prop. Mediated (treated)   0.2965       0.1171         0.55  &lt;2e-16 ***
+ACME (average)             0.0862       0.0307         0.15  &lt;2e-16 ***
+ADE (average)              0.3662       0.2320         0.50  &lt;2e-16 ***
+Prop. Mediated (average)   0.1847       0.0680         0.36  &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -600,16 +600,16 @@ Causal Mediation Analysis
 Quasi-Bayesian Confidence Intervals
 
                          Estimate 95% CI Lower 95% CI Upper p-value    
-ACME (control)             0.0358      -0.0230         0.11    0.25    
-ACME (treated)             0.1411       0.0522         0.25  &lt;2e-16 ***
-ADE (control)              0.3189       0.1716         0.47  &lt;2e-16 ***
-ADE (treated)              0.4243       0.2876         0.57  &lt;2e-16 ***
-Total Effect               0.4601       0.3441         0.58  &lt;2e-16 ***
-Prop. Mediated (control)   0.0745      -0.0515         0.24    0.25    
-Prop. Mediated (treated)   0.3013       0.1138         0.55  &lt;2e-16 ***
-ACME (average)             0.0885       0.0343         0.16  &lt;2e-16 ***
-ADE (average)              0.3716       0.2428         0.50  &lt;2e-16 ***
-Prop. Mediated (average)   0.1879       0.0730         0.36  &lt;2e-16 ***
+ACME (control)             0.0355      -0.0243         0.10    0.24    
+ACME (treated)             0.1417       0.0558         0.25  &lt;2e-16 ***
+ADE (control)              0.3207       0.1691         0.47  &lt;2e-16 ***
+ADE (treated)              0.4269       0.2923         0.57  &lt;2e-16 ***
+Total Effect               0.4624       0.3372         0.59  &lt;2e-16 ***
+Prop. Mediated (control)   0.0740      -0.0530         0.23    0.24    
+Prop. Mediated (treated)   0.3021       0.1219         0.56  &lt;2e-16 ***
+ACME (average)             0.0886       0.0348         0.16  &lt;2e-16 ***
+ADE (average)              0.3738       0.2434         0.51  &lt;2e-16 ***
+Prop. Mediated (average)   0.1881       0.0725         0.36  &lt;2e-16 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -763,48 +763,10 @@ Simulations: 1000 </code></pre>
 </div>
 <div id="analysis-of-pearl-example-using-paramed-in-stata" class="section level1">
 <h1>Analysis of Pearl Example Using paramed in Stata</h1>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools) <span class="co"># before this you may need to install devtools</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;hemken/Statamarkdown&quot;</span>)</span></code></pre></div>
-<pre><code>
-  
-  
-  
-   checking for file &#39;C:\Users\Charles Cleland\AppData\Local\Temp\RtmpUjL5e4\remotes3fa86206942\Hemken-Statamarkdown-965bfe1/DESCRIPTION&#39; ...
-  
-v  checking for file &#39;C:\Users\Charles Cleland\AppData\Local\Temp\RtmpUjL5e4\remotes3fa86206942\Hemken-Statamarkdown-965bfe1/DESCRIPTION&#39; (509ms)
-
-  
-  
-  
--  preparing &#39;Statamarkdown&#39;:
-   checking DESCRIPTION meta-information ...
-  
-   checking DESCRIPTION meta-information ... 
-  
-v  checking DESCRIPTION meta-information
-
-  
-  
-  
--  checking for LF line-endings in source and make files and shell scripts
-
-  
-  
-  
--  checking for empty or unneeded directories
-
-  
-  
-  
--  building &#39;Statamarkdown_0.6.1.tar.gz&#39;
-
-  
-   
-</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;C:\Users\Charles Cleland\Dropbox\chuck\NYU\Khan\Mediation\pearl.dta&quot;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>paramed Cured, avar(Condition) mvar(Enzyme) a0(0) a1(1) <span class="fu">m</span>(1) yreg(<span class="kw">logistic</span>) <span class="co">///</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  mreg(<span class="kw">logistic</span>) <span class="kw">boot</span> reps(1000) <span class="dv">seed</span>(5856) full</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">&quot;C:\Users\Charles Cleland\Dropbox\chuck\NYU\Khan\Mediation\pearl.dta&quot;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>paramed Cured, avar(Condition) mvar(Enzyme) a0(0) a1(1) <span class="fu">m</span>(1) yreg(<span class="kw">logistic</span>) <span class="co">///</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  mreg(<span class="kw">logistic</span>) <span class="kw">boot</span> reps(1000) <span class="dv">seed</span>(5856) full</span></code></pre></div>
 <pre><code>Iteration 0:   log likelihood = -138.26922
 Iteration 1:   log likelihood = -109.19316
 Iteration 2:   log likelihood = -108.81506
